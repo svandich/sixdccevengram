@@ -2,12 +2,12 @@ services:
   quiz:
     build: .
     ports:
-      - "8080:8000"
+      # Localhost only: put a reverse proxy (e.g. Caddy) in front. Port is set in .env (HOST_PORT).
+      - "127.0.0.1:${HOST_PORT:-8080}:8000"
     volumes:
-      - ./data:/data   # results.csv lands in ./data on the host
+      - ./data:/data   # results.csv and comments.csv land in ./data on the host
     environment:
-      # Optional: set to enable GET /api/results.csv?token=<value>
-      ADMIN_TOKEN: ""
-      # Optional: fixed secret for captcha challenges (otherwise random per start)
-      ALTCHA_HMAC_KEY: ""
+      # Set these in a .env file next to this one (it's gitignored), never here.
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}          # enables /api/results.csv?token=... and /api/comments.csv
+      ALTCHA_HMAC_KEY: ${ALTCHA_HMAC_KEY:-}  # captcha secret; random per start if empty
     restart: unless-stopped

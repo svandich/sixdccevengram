@@ -8,6 +8,30 @@ Lista T's Telegram Desktop–style site. Its first chat, Quiz Selector, is a 16-
 docker compose up -d --build      # http://localhost:8080
 ```
 
+The app only listens on localhost. Settings go in a `.env` file next to `docker-compose.yml` (gitignored):
+
+```
+HOST_PORT=8080
+ALTCHA_HMAC_KEY=<random hex, e.g. openssl rand -hex 32>
+ADMIN_TOKEN=
+```
+
+### Behind Caddy under a path (e.g. `example.com/cadcc/`)
+
+All URLs in the page are relative, so it works under a sub-path as long as the prefix is stripped:
+
+```
+example.com {
+	redir /cadcc /cadcc/ 308
+	handle_path /cadcc/* {
+		reverse_proxy localhost:8020
+	}
+	handle {
+		# ...the site's existing config
+	}
+}
+```
+
 Every completed quiz is appended to `./data/results.csv`:
 
 | column | meaning |
@@ -55,4 +79,5 @@ because the header changes.
 ## Credits
 
 Chat picture: original 16×16 pixel-art compass (`assets/compass.png`, Minecraft-inspired, drawn for this project).
+Favicon: *Red Panda Portrait* by Mathias Appel, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_Panda_Portrait_(31625024560).jpg).
 Captcha: [ALTCHA](https://altcha.org) (MIT, `app/static/vendor/ALTCHA-LICENSE.txt`). Look adapted from ofigram-desktop.

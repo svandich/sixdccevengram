@@ -176,7 +176,14 @@
     t.append(a, " en Telegram. ¡Saludos!");
     service(new Date().toLocaleDateString("es-CL", { day: "numeric", month: "long" }), "about");
     addMsg({ chat: "about", content: [t], scroll: false });
-    setBadge("about", 1);
+    const repo = text("El código de esta página es abierto: ");
+    const link = el("a", null, "github.com/svandich/sixdccevengram");
+    link.href = "https://github.com/svandich/sixdccevengram";
+    link.target = "_blank";
+    link.rel = "noopener";
+    repo.append(link);
+    addMsg({ chat: "about", content: [repo], scroll: false });
+    setBadge("about", 2);
   }
 
   function programLink(k, label) {

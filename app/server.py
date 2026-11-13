@@ -205,6 +205,10 @@ class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(STATIC), **kwargs)
 
+    def list_directory(self, path):  # no folder listings
+        self.send_error(HTTPStatus.NOT_FOUND)
+        return None
+
     def log_message(self, fmt, *args):  # don't log client IPs
         print(f"[{self.log_date_time_string()}] {fmt % args}", flush=True)
 
