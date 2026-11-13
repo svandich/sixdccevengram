@@ -36,6 +36,7 @@ pane: a `.history` scroller in `index.html` plus an entry in `panes` in `app.js`
   blue checkerboard as the compass.
 - **Acerca de** (`about`, `last: true`): Dmitri's message (`aboutChat()`), with the @dmitroia Telegram link and the
   repo link.
+- On narrow screens (≤760px) the page opens on the chat list (`startOnList` in `app.js`); desktop opens the quiz.
 - The user plans to add more chats later. Keep the sidebar generic.
 
 Favicon: `assets/favicon.png` (round) and `apple-touch-icon.png` (square). Both are a red panda photo, CC0 (Mathias

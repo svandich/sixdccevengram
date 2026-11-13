@@ -3,6 +3,9 @@
   const NEUTRAL = "-";
   const TYPING_MS = 450;
   const $ = (id) => document.getElementById(id);
+  // On phones the chat list comes first so visitors pick a chat (set before the first await to avoid a flash).
+  const startOnList = matchMedia("(max-width: 760px)").matches;
+  if (startOnList) document.body.classList.add("sidebar-open");
   const history = $("history");
   const inner = $("history-inner");
   // One scroller per chat; only the active one is visible.
@@ -451,6 +454,7 @@
 
   renderDialogs();
   openChat("quiz");
+  if (startOnList) document.body.classList.add("sidebar-open");
   linksChat();
   aboutChat();
   renderPinned();
