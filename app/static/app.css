@@ -240,6 +240,18 @@ img.userpic { object-fit: cover; background: #3f76a8; image-rendering: pixelated
 .doc-status { color: var(--date); font-size: 13px; margin-top: 2px; }
 .document:hover .doc-name { text-decoration: underline; }
 
+/* link previews */
+.webpage {
+  display: block; position: relative; margin: 6px 0 2px; padding: 2px 8px 3px 11px; min-width: 240px;
+  border-radius: 4px; color: inherit; text-decoration: none !important;
+  background: color-mix(in srgb, var(--svc) 10%, transparent);
+}
+.webpage::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 4px 0 0 4px; background: var(--bar); }
+.wp-site { color: var(--svc); font-weight: 600; font-size: 13px; }
+.wp-title { font-weight: 600; color: var(--text); }
+.wp-desc { color: var(--text); font-size: 13px; }
+.webpage:hover .wp-title { text-decoration: underline; }
+
 /* ALTCHA widget inside a bubble */
 .captcha { margin: 6px 0 2px; }
 altcha-widget {

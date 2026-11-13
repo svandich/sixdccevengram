@@ -8,6 +8,7 @@
   // One scroller per chat; only the active one is visible.
   const panes = {
     quiz: { scroller: history, inner },
+    links: { scroller: $("history-links"), inner: $("links-inner") },
     about: { scroller: $("history-about"), inner: $("about-inner") },
   };
   let active = "quiz";
@@ -109,6 +110,7 @@
   // Sidebar chats. Add new ones here; entries with `last: true` always stay at the bottom.
   const CHATS = [
     { id: "quiz", name: "Quiz Selector", photo: "assets/compass.png", bot: true, sub: "bot" },
+    { id: "links", name: "Links Importantes", photo: "assets/links.png", sub: "canal" },
     { id: "about", name: "Acerca de", initials: "AD", color: "p7", sub: "Dmitri · @dmitroia", last: true },
   ];
   const chatById = Object.fromEntries(CHATS.map((c) => [c.id, c]));
@@ -161,44 +163,68 @@
     sub.textContent = chat.sub;
     sub.classList.remove("typing");
     $("pinned").hidden = id !== "quiz";
-    $("quiz-footer").hidden = id !== "quiz";
-    $("about-footer").hidden = id !== "about";
-    if (id === "about") setBadge("about", 0);
+    for (const f of document.querySelectorAll("[data-footer]")) f.hidden = f.dataset.footer !== id;
+    setBadge(id, 0);
     document.body.classList.remove("sidebar-open");
   }
 
-  function aboutChat() {
-    const t = text("¡Hola! Soy Dmitri, de Sistemas del CaDCC 2026 y de la lista T. Creé esto porque me gusta mucho resolver problemas con software; creo que es parte fundamental de ser CaDCC, ya que estamos en la intersección perfecta de conocimiento como para saber hacer estas cosas. Si tengo más ideas, las pondré en otro chat de esta página. Si me quieres preguntar algo, escríbeme a ");
-    const a = el("a", null, "@dmitroia");
-    a.href = "https://t.me/dmitroia";
-    a.target = "_blank";
-    a.rel = "noopener";
-    t.append(a, " en Telegram. ¡Saludos!");
-    service(new Date().toLocaleDateString("es-CL", { day: "numeric", month: "long" }), "about");
-    addMsg({ chat: "about", content: [t], scroll: false });
-    const repo = text("El código de esta página es abierto: ");
-    const link = el("a", null, "github.com/svandich/sixdccevengram");
-    link.href = "https://github.com/svandich/sixdccevengram";
-    link.target = "_blank";
-    link.rel = "noopener";
-    repo.append(link);
-    addMsg({ chat: "about", content: [repo], scroll: false });
-    setBadge("about", 2);
-  }
-
-  function programLink(k, label) {
-    const a = el("a", null, label);
-    a.href = quiz.lists[k].pdf;
+  function extLink(href, label, cls) {
+    const a = el("a", cls, label);
+    a.href = href;
     a.target = "_blank";
     a.rel = "noopener";
     return a;
   }
+
+  // PDF attachments for the three programs (used in the results and in Links Importantes).
+  function programDocs() {
+    return lists.map((k) => {
+      const a = extLink(quiz.lists[k].pdf, null, "document");
+      a.appendChild(el("div", "doc-icon", "pdf"));
+      const body = el("div", "doc-body");
+      body.appendChild(el("div", "doc-name", `Programa ${listName(k)}.pdf`));
+      body.appendChild(el("div", "doc-status", "Abrir"));
+      a.appendChild(body);
+      return a;
+    });
+  }
+
+  // Telegram-style link previews for each list's Instagram.
+  function instagramCards() {
+    return lists.map((k) => {
+      const user = quiz.lists[k].instagram;
+      const a = extLink(`https://www.instagram.com/${user}/`, null, "webpage");
+      a.appendChild(el("div", "wp-site", "Instagram"));
+      a.appendChild(el("div", "wp-title", "@" + user));
+      a.appendChild(el("div", "wp-desc", listName(k)));
+      return a;
+    });
+  }
+
+  function linksChat() {
+    service(new Date().toLocaleDateString("es-CL", { day: "numeric", month: "long" }), "links");
+    addMsg({ chat: "links", content: [el("div", "head", "📄 Programas"), ...programDocs()], scroll: false });
+    addMsg({ chat: "links", content: [el("div", "head", "📸 Instagram de las listas"), ...instagramCards()], scroll: false });
+    setBadge("links", 2);
+  }
+
+  function aboutChat() {
+    const t = text("¡Hola! Soy Dmitri, de Sistemas del CaDCC 2026 y de la lista T. Creé esto porque me gusta mucho resolver problemas con software; creo que es parte fundamental de ser CaDCC, ya que estamos en la intersección perfecta de conocimiento como para saber hacer estas cosas. Si tengo más ideas, las pondré en otro chat de esta página. Si me quieres preguntar algo, escríbeme a ");
+    t.append(extLink("https://t.me/dmitroia", "@dmitroia"), " en Telegram. ¡Saludos!");
+    service(new Date().toLocaleDateString("es-CL", { day: "numeric", month: "long" }), "about");
+    addMsg({ chat: "about", content: [t], scroll: false });
+    const repo = text("El código de esta página es abierto: ");
+    repo.append(extLink("https://github.com/svandich/sixdccevengram", "github.com/svandich/sixdccevengram"));
+    addMsg({ chat: "about", content: [repo], scroll: false });
+    setBadge("about", 2);
+  }
+
   function renderPinned() {
     const pin = $("pin-text");
     pin.replaceChildren("Programas: ");
     lists.forEach((k, i) => {
       if (i) pin.append(" · ");
-      pin.appendChild(programLink(k, listShort(k)));
+      pin.appendChild(extLink(quiz.lists[k].pdf, listShort(k)));
     });
     pin.append(" — este quiz no reemplaza leerlos.");
   }
@@ -343,19 +369,7 @@
     }
     addMsg({ content: [el("div", "head", "Tus respuestas"), ol], scroll: false });
 
-    const docs = [el("div", "head", "Lee los programas completos")];
-    for (const k of lists) {
-      const a = el("a", "document");
-      a.href = quiz.lists[k].pdf;
-      a.target = "_blank";
-      a.rel = "noopener";
-      a.appendChild(el("div", "doc-icon", "pdf"));
-      const body = el("div", "doc-body");
-      body.appendChild(el("div", "doc-name", `Programa ${listName(k)}.pdf`));
-      body.appendChild(el("div", "doc-status", "Abrir"));
-      a.appendChild(body);
-      docs.push(a);
-    }
+    const docs = [el("div", "head", "Lee los programas completos"), ...programDocs()];
     if (!saved) docs.push(text("No se pudo guardar tu respuesta, pero el resultado de arriba es válido.", "muted"));
     addMsg({ content: docs, scroll: false });
     lastKbdMsg = addMsg({
@@ -437,6 +451,7 @@
 
   renderDialogs();
   openChat("quiz");
+  linksChat();
   aboutChat();
   renderPinned();
   service(new Date().toLocaleDateString("es-CL", { day: "numeric", month: "long" }));

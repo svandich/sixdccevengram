@@ -42,11 +42,13 @@
     <div class="history-wrap">
       <div class="wallpaper"><div class="wp-pattern"></div></div>
       <div id="history" class="history"><div id="history-inner" class="history-inner"></div></div>
+      <div id="history-links" class="history" hidden><div id="links-inner" class="history-inner"></div></div>
       <div id="history-about" class="history" hidden><div id="about-inner" class="history-inner"></div></div>
     </div>
     <footer class="composebar">
-      <span id="about-footer" hidden>Escríbeme por Telegram: <a href="https://t.me/dmitroia" target="_blank" rel="noopener">@dmitroia</a></span>
-      <div id="quiz-footer" class="footer-pane">
+      <span data-footer="links" hidden>Solo lectura · los programas y las cuentas de cada lista</span>
+      <span data-footer="about" hidden>Escríbeme por Telegram: <a href="https://t.me/dmitroia" target="_blank" rel="noopener">@dmitroia</a></span>
+      <div data-footer="quiz" class="footer-pane">
       <span id="composebar">Elige una opción en los botones</span>
       <form id="composer" class="composer" hidden>
         <textarea id="compose-input" rows="1" maxlength="1000" placeholder="Escribe un comentario…"></textarea>

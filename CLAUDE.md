@@ -24,12 +24,16 @@ UI text is Spanish (Chile); code and docs are English.
 
 These are defined in the `CHATS` array in `app.js`. Each chat has `id`, `name`, `photo` or `initials`/`color`,
 `sub` (topbar status), optional `bot` (robot icon) and `last: true` (always sorted to the bottom). Each chat needs a
-pane: a `.history` scroller in `index.html` plus an entry in `panes` in `app.js`. `openChat(id)` switches the
-topbar, the pinned bar (quiz only) and the footer.
+pane: a `.history` scroller in `index.html` plus an entry in `panes` in `app.js`, and a footer element with
+`data-footer="<id>"`. `openChat(id)` switches the topbar, the pinned bar (quiz only), the footer and clears the badge.
 
 - **Quiz Selector** (`quiz`): bot chat with the 16-question quiz. The avatar `assets/compass.png` is original 16×16
   pixel art in the style of a Minecraft compass (deliberately not Mojang's texture). The pinned message links the
   three PDFs.
+- **Links Importantes** (`links`): channel-style chat (`linksChat()`) with the three program PDFs (`programDocs()`,
+  also used in the quiz results) and Telegram-style link previews to each list's Instagram (`instagram` handle per
+  list in `questions.json`). The avatar `assets/links.png` is original 24×24 pixel art (two chain links) on the same
+  blue checkerboard as the compass.
 - **Acerca de** (`about`, `last: true`): Dmitri's message (`aboutChat()`), with the @dmitroia Telegram link and the
   repo link.
 - The user plans to add more chats later. Keep the sidebar generic.
