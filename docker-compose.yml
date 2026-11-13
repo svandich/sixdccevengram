@@ -1,0 +1,13 @@
+services:
+  quiz:
+    build: .
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./data:/data   # results.csv lands in ./data on the host
+    environment:
+      # Optional: set to enable GET /api/results.csv?token=<value>
+      ADMIN_TOKEN: ""
+      # Optional: fixed secret for captcha challenges (otherwise random per start)
+      ALTCHA_HMAC_KEY: ""
+    restart: unless-stopped

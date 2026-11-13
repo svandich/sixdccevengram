@@ -1,0 +1,299 @@
+{
+  "lists": {
+    "L": {
+      "name": "Lista L — Lista Enlazada",
+      "pdf": "programas/lista-L.pdf"
+    },
+    "Ñ": {
+      "name": "Lista Ñ — SeriAAAAAAAAAA",
+      "pdf": "programas/lista-N.pdf"
+    },
+    "T": {
+      "name": "Lista T — Six DCCevenMaxxing",
+      "pdf": "programas/lista-T.pdf"
+    }
+  },
+  "neutral": "Ninguna me representa / me da igual",
+  "questions": [
+    {
+      "id": "q1",
+      "area": "General",
+      "text": "¿Qué tipo de programa prefieres para el CaDCC?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Uno amplio y ambicioso, con muchas iniciativas nuevas en todas las áreas."
+        },
+        {
+          "list": "T",
+          "text": "Uno acotado y realista, enfocado en reactivar y difundir lo que ya existe."
+        },
+        {
+          "list": "Ñ",
+          "text": "Uno que no se tome demasiado en serio la política estudiantil."
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "area": "General",
+      "text": "¿Qué rol debería tener el CaDCC frente a la contingencia universitaria y nacional?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Participar activamente en la defensa de la educación pública y abrir espacios de discusión (asambleas, micrófonos abiertos)."
+        },
+        {
+          "list": "T",
+          "text": "Informar con claridad lo que se discute en CEF y CEI, para que la comunidad vote de manera informada."
+        },
+        {
+          "list": "Ñ",
+          "text": "No sumarse nunca a un paro, y cambiar la palabra «paro» por «sigo»."
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "area": "Finanzas",
+      "text": "¿En qué debería enfocarse la gestión financiera del CaDCC?",
+      "options": [
+        {
+          "list": "L",
+          "text": "En generar ingresos y vínculos con la industria: merch oficial, marketplace, alianzas con marcas y red alumni."
+        },
+        {
+          "list": "T",
+          "text": "En una administración ordenada y transparente: cuentas públicas, canal abierto de consultas y enfoque sin fines de lucro."
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "area": "Finanzas",
+      "text": "¿Qué es lo más importante para el Kioskito?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Control financiero y de pedidos, protocolos contra robos y morosidad, y un producto gratis el día de tu cumpleaños."
+        },
+        {
+          "list": "T",
+          "text": "Que abra desde la primera semana de clases, esté abastecido todo el semestre y se mantenga limpio y ordenado."
+        },
+        {
+          "list": "Ñ",
+          "text": "Un vale de 1 peso cada siglo para quien hable japonés, hebreo e hindi."
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "area": "Docencia",
+      "text": "¿Cómo debería abordar el CaDCC el uso de IA en los cursos?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Organizar a auxiliares y ayudantes para discutir metodologías, evaluación, uso de IA y la desmotivación en los cursos."
+        },
+        {
+          "list": "T",
+          "text": "Promover que cada estudiante declare si usó IA en sus tareas y para qué, llevando la propuesta al CTD."
+        },
+        {
+          "list": "Ñ",
+          "text": "Fomentar el uso de IA y, al mismo tiempo, prohibirlo."
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "area": "Docencia",
+      "text": "¿Qué apoyo académico te parece más útil?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Charlas de profesores sobre sus áreas y temas de trabajo de título, y charlas de estudiantes y egresades sobre uso de IA."
+        },
+        {
+          "list": "T",
+          "text": "Actualizar y promocionar RamosCC y NubeDCC (reseñas y material de ramos), y difundir las tutorías del Proyecto Join."
+        },
+        {
+          "list": "Ñ",
+          "text": "Que todos los cursos del departamento se hagan en Lean y usen DrRacket."
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "area": "Mundo laboral",
+      "text": "¿Cómo debería apoyar el CaDCC tu desarrollo profesional?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Prioridad en reserva de salas para quienes desarrollan startups o proyectos propios, y nexos con OpenBeauchef para mentorías."
+        },
+        {
+          "list": "T",
+          "text": "Una feria laboral abierta a pymes y startups donde puedas conversar con las empresas, y talleres de CV y entrevistas con IA."
+        },
+        {
+          "list": "Ñ",
+          "text": "Subir un post de LinkedIn después de cada control y que una IA de recursos humanos lo califique."
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "area": "Comunicaciones",
+      "text": "¿Cómo prefieres enterarte de lo que pasa en el DCC?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Con contenido audiovisual y entretenido: sketches, reels, «Wrapped» de actividades y un canal de YouTube reactivado."
+        },
+        {
+          "list": "T",
+          "text": "Con un boletín mensual de noticias y logros del DCC, y redes como LinkedIn y Mastodon reactivadas."
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "area": "Comunidad",
+      "text": "¿Qué actividades de comunidad te atraen más?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Talleres manuales (crochet, guateros), bingo, feria de las pulgas, día del globo y búsqueda del tesoro."
+        },
+        {
+          "list": "T",
+          "text": "Actividades online (amigos a ciegas, gartic phone), salidas al aire libre (picnic, San Cristóbal) y un Discord del CaDCC."
+        },
+        {
+          "list": "Ñ",
+          "text": "Un Día de Traer tu Mascota al DCC y un tobogán entre la salita y los egipcios."
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "area": "Comunidad",
+      "text": "¿Qué iniciativa entre generaciones te parece más valiosa?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Apadrinamiento: estudiantes de años superiores acompañan a un grupo de mechones durante todo el semestre."
+        },
+        {
+          "list": "T",
+          "text": "Una despedida para quienes se titulan, para mantener el contacto y fortalecer la red de exalumnos."
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "area": "Diversidad y Género",
+      "text": "¿Qué propuesta de Diversidad y Género priorizarías?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Una guía centralizada de protocolos ante acoso o abuso, y acompañar como bloque el mes de la mujer y del orgullo."
+        },
+        {
+          "list": "T",
+          "text": "Productos de higiene menstrual en todos los baños, y perspectiva de género en Proyecto de Software (charla a clientes y vías de reporte)."
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "area": "Bienestar",
+      "text": "¿Qué enfoque de bienestar te parece más necesario?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Semana de neurodivergencias, seguimiento de ajustes razonables, juguetes sensoriales y tardes de yoga y meditación."
+        },
+        {
+          "list": "T",
+          "text": "Una semana de salud mental por semestre con talleres contra el agotamiento, y jornadas anti-estrés regulares."
+        },
+        {
+          "list": "Ñ",
+          "text": "Una ducha en la puerta de la salita: nadie entra sin estar bañade."
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "area": "Espacios",
+      "text": "¿Qué mejora de espacios te importa más?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Mejoras concretas: microondas vegano, aromatizadores, botiquín completo y nuevos parlantes y micrófonos."
+        },
+        {
+          "list": "T",
+          "text": "Un formulario para reportar fallas de infraestructura, renovación de mobiliario y una guía de reciclaje."
+        },
+        {
+          "list": "Ñ",
+          "text": "Prohibir pegar stickers dentro del cajón superior de los muebles de la ofisalita."
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "area": "Deportes",
+      "text": "¿Qué enfoque deportivo prefieres?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Preparar La Mona con anticipación apuntando al pentacampeonato, Olimpiadas Computinas, trote y jornadas deportivas para mujeres."
+        },
+        {
+          "list": "T",
+          "text": "Colaborar con grupos organizados (calistenia, ajedrez, vóley) y pichangas entre estudiantes y docentes."
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "area": "Deportes",
+      "text": "¿Qué tipo de torneos de videojuegos prefieres?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Torneos casuales al inicio del año (Overcooked, Mario Kart, Smash) para integrar a las nuevas generaciones."
+        },
+        {
+          "list": "T",
+          "text": "Torneos periódicos de juegos competitivos (LoL, Valorant, Pokémon, Smash), con opción online."
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "area": "Sistemas",
+      "text": "¿Qué debería priorizar el área de Sistemas?",
+      "options": [
+        {
+          "list": "L",
+          "text": "Documentar los servicios para el traspaso entre directivas, y reactivar cadcc.cl y faq.cadcc.cl."
+        },
+        {
+          "list": "T",
+          "text": "Ampliar la nube para el archivo histórico de fotos, y mantener los pandita-bots y los chats de cursos."
+        },
+        {
+          "list": "Ñ",
+          "text": "Reemplazar todo servicio de código cerrado por alternativas self-hosteadas en el servidor de 1 TB de RAM."
+        }
+      ]
+    }
+  ]
+}

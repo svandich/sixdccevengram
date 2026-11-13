@@ -1,0 +1,17 @@
+# Survey responses and comments (private, written by the running container)
+data/
+
+# Secrets (e.g. ADMIN_TOKEN / ALTCHA_HMAC_KEY if you move them to an env file)
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Editors / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
