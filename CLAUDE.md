@@ -1,7 +1,7 @@
 # Six DCCevenGram
 
 Lista T's campaign site for the CaDCC 2027 student-council election (DCC, Universidad de Chile). It looks like
-Telegram Desktop: a sidebar of chats on the left and the active chat on the right. Live at https://erz.cl/cadcc/.
+Telegram Desktop: a sidebar of chats on the left and the active chat on the right. Was live at https://erz.cl/cadcc/; taken offline on 2026-11-14 (see Deploy).
 Repo: https://github.com/svandich/sixdccevengram (remote alias `svandich` = github.com). Commit and push to `main`.
 
 UI text is Spanish (Chile); code and docs are English.
@@ -87,6 +87,10 @@ over CDP from a small Node script (`--remote-debugging-port`, `Runtime.evaluate`
 create in `data/`.
 
 ## Deploy (server `erz`, `ssh erz`, user `kit`)
+
+**Offline since 2026-11-14:** the container is stopped (`docker compose down`) and the `/cadcc` route was removed
+from the Caddyfile (backup `Caddyfile.bak.20261114T162900Z` holds the old block). The clone and `data/` are kept on
+erz. To restore: put back the Caddy block described below, reload Caddy, and run `docker compose up -d --build`.
 
 - App: `/home/kit/docker/sixdccevengram` (git clone over https). `.env` has `HOST_PORT=8020` and a random
   `ALTCHA_HMAC_KEY` (mode 600).
